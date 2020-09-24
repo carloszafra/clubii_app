@@ -1,0 +1,112 @@
+<!-- FORM BOX DECORATION -->
+<img class="form-box-decoration" src="../assets/img/landing/rocket.png" alt="rocket">
+<!-- /FORM BOX DECORATION -->
+
+<!-- FORM BOX TITLE -->
+<h2 class="form-box-title">Create your Account!</h2>
+<!-- /FORM BOX TITLE -->
+
+<!-- FORM -->
+<form class="form" [formGroup]="registerForm" (ngSubmit)="OnRegister(registerForm.value)"> 
+    <!-- FORM ROW -->
+    <div class="form-row">
+        <!-- FORM ITEM -->
+        <div class="form-item">
+            <!-- FORM INPUT -->
+            <div class="form-input">
+                <label for="register-email">Your Email</label>
+                <input type="text" id="register-email" name="email" formControlName="email">
+            </div>
+            <!-- /FORM INPUT -->
+        </div>
+        <!-- /FORM ITEM -->
+    </div>
+    <!-- /FORM ROW -->
+
+    <!-- FORM ROW -->
+    <div class="form-row">
+        <!-- FORM ITEM -->
+        <div class="form-item">
+            <!-- FORM INPUT -->
+            <div class="form-input">
+                <label for="register-username">Username</label>
+                <input type="text" id="register-username" name="nick" formControlName="username">
+            </div>
+            <!-- /FORM INPUT -->
+        </div>
+        <!-- /FORM ITEM -->
+    </div>
+    <!-- /FORM ROW -->
+
+    <!-- FORM ROW -->
+    <div class="form-row">
+        <!-- FORM ITEM -->
+        <div class="form-item">
+            <!-- FORM INPUT -->
+            <div class="form-input">
+                <label for="register-password">Password</label>
+                <input type="password" id="register-password" name="password" formControlName="password">
+            </div>
+            <!-- /FORM INPUT -->
+        </div>
+        <!-- /FORM ITEM -->
+    </div>
+    <!-- /FORM ROW -->
+
+    <!-- FORM ROW -->
+    <div class="form-row">
+        <!-- FORM ITEM -->
+        <div class="form-item">
+            <!-- FORM INPUT -->
+            <div class="form-input">
+                <label for="register-password-repeat">Repeat Password</label>
+                <input type="password" id="register-password-repeat">
+            </div>
+            <!-- /FORM INPUT -->
+        </div>
+        <!-- /FORM ITEM -->
+    </div>
+    <!-- /FORM ROW -->
+
+    <!-- FORM ROW -->
+    <div class="form-row">
+        <!-- FORM ITEM -->
+        <div class="form-item">
+            <!-- CHECKBOX WRAP -->
+            <div class="checkbox-wrap">
+                <input type="checkbox" id="register-newsletter" name="register_newsletter" checked>
+                <!-- CHECKBOX BOX -->
+                <div class="checkbox-box">
+                    <!-- ICON CROSS -->
+                    <svg class="icon-cross">
+                        <use xlink:href="#svg-cross"></use>
+                    </svg>
+                    <!-- /ICON CROSS -->
+                </div>
+                <!-- /CHECKBOX BOX -->
+                <label for="register-newsletter">Send me news and updates via email</label>
+            </div>
+            <!-- /CHECKBOX WRAP -->
+        </div>
+        <!-- /FORM ITEM -->
+    </div>
+    <!-- /FORM ROW -->
+
+    <!-- FORM ROW -->
+    <div class="form-row">
+        <!-- FORM ITEM -->
+        <div class="form-item">
+            <!-- BUTTON -->
+            <button type="submit" class="button medium primary">Register Now!</button>
+            <!-- /BUTTON -->
+        </div>
+        <!-- /FORM ITEM -->
+    </div>
+    <!-- /FORM ROW -->
+</form>
+<!-- /FORM -->
+
+<!-- FORM TEXT -->
+<p class="form-text">You'll receive a confirmation email in your inbox with a link to activate your account.
+    If you have any problems, <a href="#">contact us</a>!</p>
+<!-- /FORM TEXT -->

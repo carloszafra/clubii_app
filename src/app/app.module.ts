@@ -1,16 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule} from '@angular/router';
+
+import { AccountHubModule } from './account-hub/account-hub.module';
+import { AuthModule } from './auth/auth.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    RouterModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    AccountHubModule,
+    AuthModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
