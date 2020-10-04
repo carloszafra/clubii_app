@@ -7,7 +7,7 @@
 <!-- /FORM BOX TITLE -->
 
 <!-- FORM -->
-<form class="form" [formGroup]="registerForm" (ngSubmit)="OnRegister(registerForm.value)"> 
+<form class="form" [formGroup]="registerForm" (ngSubmit)="OnRegister()">
     <!-- FORM ROW -->
     <div class="form-row">
         <!-- FORM ITEM -->
@@ -45,7 +45,7 @@
             <!-- FORM INPUT -->
             <div class="form-input">
                 <label for="register-password">Password</label>
-                <input type="password" id="register-password" name="password" formControlName="password">
+                <input type="password" id="register-password" name="password" formControlName="password1">
             </div>
             <!-- /FORM INPUT -->
         </div>
@@ -60,7 +60,7 @@
             <!-- FORM INPUT -->
             <div class="form-input">
                 <label for="register-password-repeat">Repeat Password</label>
-                <input type="password" id="register-password-repeat">
+                <input type="password" id="register-password-repeat" formControlName="password2">
             </div>
             <!-- /FORM INPUT -->
         </div>
@@ -91,6 +91,14 @@
         <!-- /FORM ITEM -->
     </div>
     <!-- /FORM ROW -->
+
+    <div class="form-row">
+        <div class="form-item">
+            <label style="color: red;" *ngIf="invalidField('username')">El nombre es obligatorio</label>
+            <label style="color: red;" *ngIf="invalidField('email')">El email es obligatorio y debe ser válido</label>
+            <label style="color: red;" *ngIf="invalidPasswords()">las contraseñas deben ser iguales</label>
+        </div>
+    </div>
 
     <!-- FORM ROW -->
     <div class="form-row">

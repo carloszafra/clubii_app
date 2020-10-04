@@ -11,9 +11,9 @@ const routes: Routes = [
         path: 'account-hub',
         component: AccountHubComponent,
         children: [
-            { path: '', component: SettingsComponent, data: { title: 'profile-settings'} },
-            { path: 'group-settings', component: GroupSettingsComponent, data: { title: 'group-settings'} },
-            { path: 'social', component: SocialComponent, data: {title: 'social'}}
+            { path: '', component: SettingsComponent, data: { title: 'Profile settings'} },
+            { path: 'group-settings', component: GroupSettingsComponent, data: { title: 'Group settings'} },
+            { path: 'social', component: SocialComponent, data: {title: 'Social'}}
         ]
     },
 ];

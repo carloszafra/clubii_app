@@ -4,13 +4,17 @@ import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { ScriptsService } from '../services/scripts.service';
 
+
+
 @Component({
   selector: 'app-account-hub',
   templateUrl: './account-hub.component.html',
   styles: [
   ]
 })
-export class AccountHubComponent {
+export class AccountHubComponent implements OnInit {
   
-
+  ngOnInit():void {
+    
+  } 
 }

@@ -5,12 +5,14 @@ import { filter } from 'rxjs/operators';
 import { Observable, Subscription } from 'rxjs';
 
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy{
+export class AppComponent {
  
 
   constructor( private router: Router,
@@ -23,12 +25,10 @@ export class AppComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.scriptSvc.loadScript();
+    
   }
-
- /* getRouteChange(){
-    return this.router.events
-    .pipe( filter( event => event instanceof NavigationEnd ));
-  }  */
   
+
+ 
   
 }

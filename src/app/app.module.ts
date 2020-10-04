@@ -6,6 +6,8 @@ import { RouterModule} from '@angular/router';
 
 import { AccountHubModule } from './account-hub/account-hub.module';
 import { AuthModule } from './auth/auth.module';
+import { NewsfeedModule } from './newsfeed/newsfeed.module';
+import { ProfileModule } from './profile/profile.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,7 +26,9 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     ReactiveFormsModule,
     AppRoutingModule,
     AccountHubModule,
-    AuthModule
+    AuthModule,
+    NewsfeedModule,
+    ProfileModule
     
   ],
   providers: [],

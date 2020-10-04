@@ -15,7 +15,7 @@ export class SettingsComponent implements OnInit {
 
   public editProfileForm;
   public user$: Observable<any>;
-  public userData: userI;
+  public userData: userI; 
   public user: userI;
   files: File[] = [];
 

@@ -25,30 +25,32 @@
         <!-- WIDGET BOX CONTENT -->
         <div class="widget-box-content">
             <!-- FORM -->
-            <form class="form">
+            <form class="form" [formGroup]="socialForm" (ngSubmit)="onEditProfile(socialForm.value)">
                 <!-- FORM ROW -->
                 <div class="form-row split">
+
                     <!-- FORM ITEM -->
                     <div class="form-item">
                         <!-- FORM INPUT -->
                         <div class="form-input social-input small active">
                             <!-- SOCIAL LINK -->
-                            <div class="social-link no-hover facebook">
-                                <!-- ICON FACEBOOK -->
-                                <svg class="icon-facebook">
-                                    <use xlink:href="#svg-facebook"></use>
+                            <div class="social-link no-hover instagram">
+                                <!-- ICON INSTAGRAM -->
+                                <svg class="icon-instagram">
+                                    <use xlink:href="#svg-instagram"></use>
                                 </svg>
-                                <!-- /ICON FACEBOOK -->
+                                <!-- /ICON INSTAGRAM -->
                             </div>
                             <!-- /SOCIAL LINK -->
 
-                            <label for="social-account-facebook">Facebook Username</label>
-                            <input type="text" id="social-account-facebook" name="social_account_facebook"
-                                value="marinavalentine182">
+                            <label for="social-account-instagram">Instagram Username</label>
+                            <input type="text" id="social-account-instagram" name="social_account_instagram"
+                               formControlName="instagram">
                         </div>
                         <!-- /FORM INPUT -->
                     </div>
                     <!-- /FORM ITEM -->
+
 
                     <!-- FORM ITEM -->
                     <div class="form-item">
@@ -66,248 +68,15 @@
 
                             <label for="social-account-twitter">Twitter Username</label>
                             <input type="text" id="social-account-twitter" name="social_account_twitter"
-                                value="dghuntress">
+                                formControlName="twitter">
                         </div>
                         <!-- /FORM INPUT -->
                     </div>
                     <!-- /FORM ITEM -->
                 </div>
                 <!-- /FORM ROW -->
-
-                <!-- FORM ROW -->
-                <div class="form-row split">
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- FORM INPUT -->
-                        <div class="form-input social-input small active">
-                            <!-- SOCIAL LINK -->
-                            <div class="social-link no-hover instagram">
-                                <!-- ICON INSTAGRAM -->
-                                <svg class="icon-instagram">
-                                    <use xlink:href="#svg-instagram"></use>
-                                </svg>
-                                <!-- /ICON INSTAGRAM -->
-                            </div>
-                            <!-- /SOCIAL LINK -->
-
-                            <label for="social-account-instagram">Instagram Username</label>
-                            <input type="text" id="social-account-instagram" name="social_account_instagram"
-                                value="mvalentine">
-                        </div>
-                        <!-- /FORM INPUT -->
-                    </div>
-                    <!-- /FORM ITEM -->
-
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- FORM INPUT -->
-                        <div class="form-input social-input small active">
-                            <!-- SOCIAL LINK -->
-                            <div class="social-link no-hover twitch">
-                                <!-- ICON TWITCH -->
-                                <svg class="icon-twitch">
-                                    <use xlink:href="#svg-twitch"></use>
-                                </svg>
-                                <!-- /ICON TWITCH -->
-                            </div>
-                            <!-- /SOCIAL LINK -->
-
-                            <label for="social-account-twitch">Twitch Username</label>
-                            <input type="text" id="social-account-twitch" name="social_account_twitch"
-                                value="gamehuntress">
-                        </div>
-                        <!-- /FORM INPUT -->
-                    </div>
-                    <!-- /FORM ITEM -->
-                </div>
-                <!-- /FORM ROW -->
-
-                <!-- FORM ROW -->
-                <div class="form-row split">
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- FORM INPUT -->
-                        <div class="form-input social-input small">
-                            <!-- SOCIAL LINK -->
-                            <div class="social-link no-hover google">
-                                <!-- ICON GOOGLE -->
-                                <svg class="icon-google">
-                                    <use xlink:href="#svg-google"></use>
-                                </svg>
-                                <!-- /ICON GOOGLE -->
-                            </div>
-                            <!-- /SOCIAL LINK -->
-
-                            <label for="social-account-google">Google + Username</label>
-                            <input type="text" id="social-account-google" name="social_account_google">
-                        </div>
-                        <!-- /FORM INPUT -->
-                    </div>
-                    <!-- /FORM ITEM -->
-
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- FORM INPUT -->
-                        <div class="form-input social-input small active">
-                            <!-- SOCIAL LINK -->
-                            <div class="social-link no-hover youtube">
-                                <!-- ICON YOUTUBE -->
-                                <svg class="icon-youtube">
-                                    <use xlink:href="#svg-youtube"></use>
-                                </svg>
-                                <!-- /ICON YOUTUBE -->
-                            </div>
-                            <!-- /SOCIAL LINK -->
-
-                            <label for="social-account-youtube">Youtube Username</label>
-                            <input type="text" id="social-account-youtube" name="social_account_youtube"
-                                value="dagamehuntress">
-                        </div>
-                        <!-- /FORM INPUT -->
-                    </div>
-                    <!-- /FORM ITEM -->
-                </div>
-                <!-- /FORM ROW -->
-
-                <!-- FORM ROW -->
-                <div class="form-row split">
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- FORM INPUT -->
-                        <div class="form-input social-input small active">
-                            <!-- SOCIAL LINK -->
-                            <div class="social-link no-hover patreon">
-                                <!-- ICON PATREON -->
-                                <svg class="icon-patreon">
-                                    <use xlink:href="#svg-patreon"></use>
-                                </svg>
-                                <!-- /ICON PATREON -->
-                            </div>
-                            <!-- /SOCIAL LINK -->
-
-                            <label for="social-account-patreon">Patreon Username</label>
-                            <input type="text" id="social-account-patreon" name="social_account_patreon"
-                                value="huntressplays">
-                        </div>
-                        <!-- /FORM INPUT -->
-                    </div>
-                    <!-- /FORM ITEM -->
-
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- FORM INPUT -->
-                        <div class="form-input social-input small active">
-                            <!-- SOCIAL LINK -->
-                            <div class="social-link no-hover discord">
-                                <!-- ICON DISCORD -->
-                                <svg class="icon-discord">
-                                    <use xlink:href="#svg-discord"></use>
-                                </svg>
-                                <!-- /ICON DISCORD -->
-                            </div>
-                            <!-- /SOCIAL LINK -->
-
-                            <label for="social-account-discord">Discord Channel</label>
-                            <input type="text" id="social-account-discord" name="social_account_discord"
-                                value="huntressgrounds">
-                        </div>
-                        <!-- /FORM INPUT -->
-                    </div>
-                    <!-- /FORM ITEM -->
-                </div>
-                <!-- /FORM ROW -->
-
-                <!-- FORM ROW -->
-                <div class="form-row split">
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- FORM INPUT -->
-                        <div class="form-input social-input small">
-                            <!-- SOCIAL LINK -->
-                            <div class="social-link no-hover deviantart">
-                                <!-- ICON DEVIANTART -->
-                                <svg class="icon-deviantart">
-                                    <use xlink:href="#svg-deviantart"></use>
-                                </svg>
-                                <!-- /ICON DEVIANTART -->
-                            </div>
-                            <!-- /SOCIAL LINK -->
-
-                            <label for="social-account-deviantart">DeviantArt Username</label>
-                            <input type="text" id="social-account-deviantart" name="social_account_deviantart">
-                        </div>
-                        <!-- /FORM INPUT -->
-                    </div>
-                    <!-- /FORM ITEM -->
-
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- FORM INPUT -->
-                        <div class="form-input social-input small">
-                            <!-- SOCIAL LINK -->
-                            <div class="social-link no-hover behance">
-                                <!-- ICON BEHANCE -->
-                                <svg class="icon-behance">
-                                    <use xlink:href="#svg-behance"></use>
-                                </svg>
-                                <!-- /ICON BEHANCE -->
-                            </div>
-                            <!-- /SOCIAL LINK -->
-
-                            <label for="social-account-behance">Behance Username</label>
-                            <input type="text" id="social-account-behance" name="social_account_behance">
-                        </div>
-                        <!-- /FORM INPUT -->
-                    </div>
-                    <!-- /FORM ITEM -->
-                </div>
-                <!-- /FORM ROW -->
-
-                <!-- FORM ROW -->
-                <div class="form-row split">
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- FORM INPUT -->
-                        <div class="form-input social-input small">
-                            <!-- SOCIAL LINK -->
-                            <div class="social-link no-hover dribbble">
-                                <!-- ICON DRIBBBLE -->
-                                <svg class="icon-dribbble">
-                                    <use xlink:href="#svg-dribbble"></use>
-                                </svg>
-                                <!-- /ICON DRIBBBLE -->
-                            </div>
-                            <!-- /SOCIAL LINK -->
-
-                            <label for="social-account-dribbble">Dribbble Username</label>
-                            <input type="text" id="social-account-dribbble" name="social_account_dribbble">
-                        </div>
-                        <!-- /FORM INPUT -->
-                    </div>
-                    <!-- /FORM ITEM -->
-
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- FORM INPUT -->
-                        <div class="form-input social-input small">
-                            <!-- SOCIAL LINK -->
-                            <div class="social-link no-hover artstation">
-                                <!-- ICON ARTSTATION -->
-                                <svg class="icon-artstation">
-                                    <use xlink:href="#svg-artstation"></use>
-                                </svg>
-                                <!-- /ICON ARTSTATION -->
-                            </div>
-                            <!-- /SOCIAL LINK -->
-
-                            <label for="social-account-artstation">ArtStation Username</label>
-                            <input type="text" id="social-account-artstation" name="social_account_artstation">
-                        </div>
-                        <!-- /FORM INPUT -->
-                    </div>
-                    <!-- /FORM ITEM -->
-                </div>
-                <!-- /FORM ROW -->
+                <button type="submit" class="button small white add-field-button">Save changes</button>
+               
             </form>
             <!-- /FORM -->
         </div>

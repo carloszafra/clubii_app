@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { AccountHubRoutingModule } from './account-hub/account-hub.routing.module';
+import { NewsfeedRoutingModule } from './newsfeed/newsfeed.routing.module'
 import { LandingComponent } from './auth/landing/landing.component';
+import { ProfileRoutingModule } from './profile/profile.routing.module';
 
 
 const routes: Routes = [
@@ -15,7 +17,9 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes),
-    AccountHubRoutingModule
+    AccountHubRoutingModule,
+    NewsfeedRoutingModule,
+    ProfileRoutingModule
   ],
   exports: [RouterModule]
 })
