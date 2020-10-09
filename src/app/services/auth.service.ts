@@ -77,5 +77,30 @@ export class AuthService {
 
     return this._http.get(`${this.url}user/logged`, {headers: headers})
   }
+
+  getUsers(page?: any): Observable<any>{
+    const token = this.getToken();
+
+    let headers = new HttpHeaders()
+    .set('Content-Type', 'application/json')
+    .set('Authorization', `Bearer ${token}`);
+
+    const from = (page * 5)- 5;
+
+    const url = `${this.url}user?from=${from}`;
+
+    return this._http.get(url, {headers: headers})
+  }
+
+  getUser(userId: any): Observable<any> {
+    const token = this.getToken();
+    let headers = new HttpHeaders()
+    .set('Content-Type', 'application/json')
+    .set('Authorization', `Bearer ${token}`);
+
+    const url = `${this.url}user/${userId}`;
+
+    return this._http.get(url, {headers: headers});
+  }
   
 }

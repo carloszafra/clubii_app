@@ -10,6 +10,6 @@ export interface userI {
     instagram?: string;
     avatarUrl?: string;
     coverUrl?: string;
-    password: string;
+    password?: string;
     timestamp?: Date;
 }

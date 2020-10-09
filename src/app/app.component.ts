@@ -4,7 +4,7 @@ import { NavigationEnd, NavigationStart, Router} from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Observable, Subscription } from 'rxjs';
 
-
+declare function customInitFunction();
 
 
 @Component({
@@ -24,7 +24,7 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    this.scriptSvc.loadScript();
+    //this.scriptSvc.loadScript();
     
   }
   

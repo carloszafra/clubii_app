@@ -44,9 +44,8 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', JSON.stringify(this.token));
         localStorage.setItem('identity', JSON.stringify(this.identity));
 
-       window.location.replace('/');
-
-       // this.router.navigate(['/'])
+        //this.router.navigate(['/'])
+        location.replace('/account-hub')
       },
       error => {
         console.log(error);

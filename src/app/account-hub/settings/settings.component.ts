@@ -17,7 +17,8 @@ export class SettingsComponent implements OnInit {
   public user$: Observable<any>;
   public userData: userI; 
   public user: userI;
-  files: File[] = [];
+  public avatarUrl: string = 'avatar';
+  public coverUrl: string = 'cover';
 
   constructor( 
     private authSvc: AuthService,
@@ -46,7 +47,9 @@ export class SettingsComponent implements OnInit {
         this.initValueForm(this.userData);
       },
       error => console.log
-    )
+    );
+
+    console.log(this.user)
      
   }
 
@@ -82,40 +85,8 @@ export class SettingsComponent implements OnInit {
     })
   }
 
-  /* ++++++++++++
-  FILE HANDLING
-  +++++++++++++++*/ 
+  
 
-  onSelect(event) {
-    console.log(event);
-    this.files.push(...event.addedFiles);
-  }
-
-  onRemove(event) {
-    console.log(event);
-    this.files.splice(this.files.indexOf(event), 1);
-  }
-
-  onUpload(): void {
-    if(!this.files[0]) alert('no hay imagenes por subir');
-
-    const fileData = this.files[0];
-    const data = new FormData();
-
-    data.append('file', fileData);
-    data.append('upload_preset', 'angular_cloudinary');
-    data.append('cloud_name', 'clubii');
-
-    this.fileSvc.fileUpload(data).subscribe(
-      response => {
-        console.log(response);
-        
-        this.userData.avatarUrl = response.secure_url;
-        console.log(this.userData);
-        this.useAuthService(this.userData);
-      },
-      error => console.log(error)
-    )
-  }
+  
 
 }

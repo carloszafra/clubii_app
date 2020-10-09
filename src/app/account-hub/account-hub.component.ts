@@ -1,10 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
-import { ScriptsService } from '../services/scripts.service';
 
-
+declare function customInitFunctions();
 
 @Component({
   selector: 'app-account-hub',

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
+
+
+declare function customInitFunctions();
 
 @Component({
   selector: 'app-profile',
@@ -6,11 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, AfterContentInit {
 
-  constructor() { }
+ 
+
+  constructor( 
+    
+  ) { }
+  ngAfterContentInit(): void {
+    
+  }
 
   ngOnInit(): void {
+    customInitFunctions();
+   
   }
 
 }

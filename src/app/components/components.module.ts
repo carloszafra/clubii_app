@@ -4,18 +4,27 @@ import { HubSidebarComponent } from './hub-sidebar/hub-sidebar.component';
 import { RouterModule } from '@angular/router';
 import { ProfileHeaderComponent } from './profile-header/profile-header.component';
 import { SectionNavigationComponent } from './section-navigation/section-navigation.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 
 @NgModule({
-  declarations: [HubSidebarComponent, ProfileHeaderComponent, SectionNavigationComponent],
+  declarations: [
+    HubSidebarComponent, 
+    ProfileHeaderComponent, 
+    SectionNavigationComponent, 
+    FileUploadComponent
+  ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    NgxDropzoneModule
   ],
   exports: [
     HubSidebarComponent,
     ProfileHeaderComponent,
-    SectionNavigationComponent
+    SectionNavigationComponent,
+    FileUploadComponent
   ]
 })
 export class ComponentsModule { }

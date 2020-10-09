@@ -1,0 +1,19 @@
+<p>file-upload works!</p>
+<div class="upload-box">
+
+
+    <ngx-dropzone (change)="onSelect($event)">
+        <ngx-dropzone-label>Change {{type}}!</ngx-dropzone-label>
+        <!-- UPLOAD BOX ICON -->
+        <svg class="upload-box-icon icon-members">
+            <use xlink:href="#svg-members"></use>
+        </svg>
+        <!-- /UPLOAD BOX ICON -->
+        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+            [removable]="true" (removed)="onRemove(f)">
+            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+        </ngx-dropzone-image-preview>
+    </ngx-dropzone>
+    <button (click)="onUpload()"> upload </button>
+</div>
+<!-- /UPLOAD BOX -->

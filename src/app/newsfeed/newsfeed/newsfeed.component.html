@@ -1036,7 +1036,7 @@
                 <!-- QUICK POST BODY -->
                 <div class="quick-post-body">
                     <!-- FORM -->
-                    <form class="form">
+                    <form class="form" [formGroup]="pubForm" (ngSubmit)="postPub(pubForm.value)">
                         <!-- FORM ROW -->
                         <div class="form-row">
                             <!-- FORM ITEM -->
@@ -1044,7 +1044,8 @@
                                 <!-- FORM TEXTAREA -->
                                 <div class="form-textarea">
                                     <textarea id="quick-post-text" name="quick-post-text"
-                                        placeholder="Hi Marina! Share your post here..."></textarea>
+                                        placeholder="Hi Marina! Share your post here..."
+                                        formControlName="content"></textarea>
                                     <!-- FORM TEXTAREA LIMIT TEXT -->
                                     <p class="form-textarea-limit-text">998/1000</p>
                                     <!-- /FORM TEXTAREA LIMIT TEXT -->
@@ -1052,8 +1053,25 @@
                                 <!-- /FORM TEXTAREA -->
                             </div>
                             <!-- /FORM ITEM -->
+                            <!-- QUICK POST FOOTER ACTION -->
+                            <div class="quick-post-footer-action text-tooltip-tft-medium" 
+                            data-title="Insert Photo" 
+                            (click)="inputImagePub.click()"
+                            >
+                                <!-- QUICK POST FOOTER ACTION ICON -->
+                                <svg class="quick-post-footer-action-icon icon-camera">
+                                    <use xlink:href="#svg-camera"></use>
+                                </svg>
+                                <!-- /QUICK POST FOOTER ACTION ICON -->
+                            </div>
+                            <input hidden type="file" #inputImagePub
+                             formControlName="fileUrl" 
+                             (change)="handleImage($event)"
+                            >
+                            <!-- /QUICK POST FOOTER ACTION -->
                         </div>
                         <!-- /FORM ROW -->
+                        <button #postButton hidden type="submit"></button>
                     </form>
                     <!-- /FORM -->
                 </div>
@@ -1102,7 +1120,7 @@
                         <!-- /BUTTON -->
 
                         <!-- BUTTON -->
-                        <p class="button small secondary">Post</p>
+                        <p class="button small secondary" (click)="postButton.click()">Post</p>
                         <!-- /BUTTON -->
                     </div>
                     <!-- /QUICK POST FOOTER ACTIONS -->

@@ -1,9 +1,10 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavBarService } from '../../services/nav-bar.service'
 import { RouterLink} from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute, ActivationEnd } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,16 +12,18 @@ import { filter, map } from 'rxjs/operators';
   styles: [
   ]
 })
-export class NavbarComponent implements OnDestroy{ 
+export class NavbarComponent implements OnInit, OnDestroy{ 
   
   public menuItems: any[];
   public title: string;
   public titleSubs$: Subscription;
+  public user: any;
 
   constructor( 
     private router: Router, 
-    private route: ActivatedRoute,
-    private navSvc: NavBarService 
+    private route: ActivatedRoute, 
+    private navSvc: NavBarService,
+    private authSvc: AuthService 
   ) 
   { 
     this.titleSubs$ = this.getRouteParams()
@@ -29,8 +32,15 @@ export class NavbarComponent implements OnDestroy{
       document.title = `Clubii | ${title}`;
     });
 
-    this.menuItems = this.navSvc.menu;    
+    this.menuItems = this.navSvc.menu;
+    console.log(this.menuItems)
   }
+
+
+  ngOnInit(): void{
+    this.user = this.authSvc.getIdentity();
+  }
+
   ngOnDestroy(): void {
     this.titleSubs$.unsubscribe();
   }

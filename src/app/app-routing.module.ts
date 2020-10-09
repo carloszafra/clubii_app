@@ -5,6 +5,7 @@ import { AccountHubRoutingModule } from './account-hub/account-hub.routing.modul
 import { NewsfeedRoutingModule } from './newsfeed/newsfeed.routing.module'
 import { LandingComponent } from './auth/landing/landing.component';
 import { ProfileRoutingModule } from './profile/profile.routing.module';
+import { UsersRoutingModule } from './users/users-routing.module';
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     AccountHubRoutingModule,
     NewsfeedRoutingModule,
-    ProfileRoutingModule
+    ProfileRoutingModule,
+    UsersRoutingModule
   ],
   exports: [RouterModule]
 })

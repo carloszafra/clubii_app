@@ -5,7 +5,7 @@
         <!-- USER AVATAR CONTENT -->
         <div class="user-avatar-content">
             <!-- HEXAGON -->
-            <div class="hexagon-image-30-32" data-src="img/avatar/01.jpg"></div>
+            <div class="hexagon-image-30-32" [attr.data-src]="user.avatarUrl"></div>
             <!-- /HEXAGON -->
         </div>
         <!-- /USER AVATAR CONTENT -->
@@ -55,10 +55,10 @@
     <!-- MENU -->
     <ul class="menu small">
         <!-- MENU ITEM -->
-        <li class="menu-item">
+        <li class="menu-item" *ngFor="let item of menuItems">
             <!-- MENU ITEM LINK -->
-            <a class="menu-item-link text-tooltip-tfr" routerLink="/newsfeed" 
-                data-title="Newsfeed">
+            <a class="menu-item-link text-tooltip-tfr" [routerLink]="item.url" 
+                [attr.data-title]="item.title">
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-newsfeed">
                     <use xlink:href="#svg-newsfeed"></use>
@@ -69,82 +69,7 @@
 
         </li>
         <!-- /MENU ITEM -->
-        <!-- MENU ITEM -->
-        <li class="menu-item">
-            <!-- MENU ITEM LINK -->
-            <a class="menu-item-link text-tooltip-tfr" routerLink="/account-hub" 
-                data-title="Overview">
-                <!-- MENU ITEM LINK ICON -->
-                <svg class="menu-item-link-icon icon-overview">
-                    <use xlink:href="#svg-overview"></use>
-                </svg>
-                <!-- /MENU ITEM LINK ICON -->
-            </a>
-            <!-- /MENU ITEM LINK -->
-
-        </li>
-        <!-- /MENU ITEM -->
-        <!-- MENU ITEM -->
-        <li class="menu-item">
-            <!-- MENU ITEM LINK -->
-            <a class="menu-item-link text-tooltip-tfr" routerLink="/groups" 
-                data-title="Groups">
-                <!-- MENU ITEM LINK ICON -->
-                <svg class="menu-item-link-icon icon-group">
-                    <use xlink:href="#svg-group"></use>
-                </svg>
-                <!-- /MENU ITEM LINK ICON -->
-            </a>
-            <!-- /MENU ITEM LINK -->
-
-        </li>
-        <!-- /MENU ITEM -->
-        <!-- MENU ITEM -->
-        <li class="menu-item">
-            <!-- MENU ITEM LINK -->
-            <a class="menu-item-link text-tooltip-tfr" routerLink="/members" 
-                data-title="Members">
-                <!-- MENU ITEM LINK ICON -->
-                <svg class="menu-item-link-icon icon-members">
-                    <use xlink:href="#svg-members"></use>
-                </svg>
-                <!-- /MENU ITEM LINK ICON -->
-            </a>
-            <!-- /MENU ITEM LINK -->
-
-        </li>
-        <!-- /MENU ITEM -->
-        <!-- MENU ITEM -->
-        <li class="menu-item">
-            <!-- MENU ITEM LINK -->
-            <a class="menu-item-link text-tooltip-tfr" routerLink="/badges" 
-                data-title="Badges">
-                <!-- MENU ITEM LINK ICON -->
-                <svg class="menu-item-link-icon icon-badges">
-                    <use xlink:href="#svg-badges"></use>
-                </svg>
-                <!-- /MENU ITEM LINK ICON -->
-            </a>
-            <!-- /MENU ITEM LINK -->
-
-        </li>
-        <!-- /MENU ITEM -->
-        <!-- MENU ITEM -->
-        <li class="menu-item">
-            <!-- MENU ITEM LINK -->
-            <a class="menu-item-link text-tooltip-tfr" routerLink="/streams" 
-                data-title="Streams">
-                <!-- MENU ITEM LINK ICON -->
-                <svg class="menu-item-link-icon icon-streams">
-                    <use xlink:href="#svg-streams"></use>
-                </svg>
-                <!-- /MENU ITEM LINK ICON -->
-            </a>
-            <!-- /MENU ITEM LINK -->
-
-        </li>
-        <!-- /MENU ITEM -->
-
+       
     </ul>
     <!-- /MENU -->
 </nav>
@@ -173,7 +98,7 @@
             <!-- USER AVATAR CONTENT -->
             <div class="user-avatar-content">
                 <!-- HEXAGON -->
-                <div class="hexagon-image-82-90" data-src="img/avatar/01.jpg"></div>
+                <div class="hexagon-image-82-90" [attr.data-src]="user.avatarUrl"></div>
                 <!-- /HEXAGON -->
             </div>
             <!-- /USER AVATAR CONTENT -->

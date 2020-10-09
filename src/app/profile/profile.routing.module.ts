@@ -7,9 +7,10 @@ import { ProfileComponent } from './profile.component';
 
 const routes: Routes = [
     {
-        path: 'profile',
+        path: 'profile/:id',
         component: ProfileComponent,
         children: [
+            { path: '', redirectTo:'timeline', pathMatch: 'full'},
             { path: 'timeline', component: TimelineComponent, data: {title: 'Profile timeline'} }
         ]
     },
