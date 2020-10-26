@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit, OnDestroy{
     this.titleSubs$ = this.getRouteParams()
     .subscribe( ({title}) =>{
       this.title = title;
-      document.title = `Clubii | ${title}`;
+      document.title = `Clubii | ${title}`; 
     });
 
     this.menuItems = this.navSvc.menu;

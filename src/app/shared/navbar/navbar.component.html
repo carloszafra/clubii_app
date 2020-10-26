@@ -60,8 +60,8 @@
             <a class="menu-item-link text-tooltip-tfr" [routerLink]="item.url" 
                 [attr.data-title]="item.title">
                 <!-- MENU ITEM LINK ICON -->
-                <svg class="menu-item-link-icon icon-newsfeed">
-                    <use xlink:href="#svg-newsfeed"></use>
+                <svg [class]="item.svgClass">
+                    <use [attr.xlink:href]="item.xlink"></use>
                 </svg>
                 <!-- /MENU ITEM LINK ICON -->
             </a>

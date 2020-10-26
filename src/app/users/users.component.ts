@@ -1,25 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChildren, QueryList, AfterContentInit } from '@angular/core';
 import { userI } from '../shared/models/user.interface';
 import { AuthService } from '../services/auth.service';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 declare function customInitFunctions();
 
 @Component({
-  selector: 'app-users',
+  selector: 'app-users', 
   templateUrl: './users.component.html',
   styles: [
   ]
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, AfterViewInit {
 
-  public users: userI[]
+  public users: userI[];
+  @ViewChildren('itemUsers') itemUsers: QueryList<any>;
 
   constructor( private authSvc: AuthService, private _route: ActivatedRoute ) { }
 
   ngOnInit(): void {  
     this.getPage();
-    //customInitFunctions();
+  }
+
+  ngAfterViewInit(): void{
+    this.execScripts()
+    this.itemUsers.changes.subscribe( t => {
+      customInitFunctions();
+    })
   }
 
   getPage(): void{
@@ -38,6 +46,9 @@ export class UsersComponent implements OnInit {
         console.log(error)
       }
     )
+  }
+  execScripts(): void{
+    customInitFunctions();
   }
 
 }

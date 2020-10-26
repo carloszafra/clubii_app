@@ -6,6 +6,7 @@ import { ProfileHeaderComponent } from './profile-header/profile-header.componen
 import { SectionNavigationComponent } from './section-navigation/section-navigation.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { NewsfeedTimelineComponent } from './newsfeed-timeline/newsfeed-timeline.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     HubSidebarComponent, 
     ProfileHeaderComponent, 
     SectionNavigationComponent, 
-    FileUploadComponent
+    FileUploadComponent, 
+    NewsfeedTimelineComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     HubSidebarComponent,
     ProfileHeaderComponent,
     SectionNavigationComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    NewsfeedTimelineComponent
   ]
 })
 export class ComponentsModule { }

@@ -22,8 +22,30 @@ export class PublicationService {
 
     let headers = new HttpHeaders()
     .set('Content-Type', 'application/json')
-    .set('Authorization', `Bearer ${token}`)
+    .set('Authorization', `Bearer ${token}`);
 
     return this._http.post(`${this.url}publications/new`, params, {headers: headers});
+  }
+
+  getNewsfeedPubs(token: any, page: any): Observable<any> {
+    let headers = new HttpHeaders()
+    .set('Content-Type', 'application/json')
+    .set('Authorization', `Bearer ${token}`);
+
+    const from = (page * 5) - 5;
+    const url = `${this.url}publications/newsfeed?from=${from}`
+
+    return this._http.get(url, {headers: headers});
+  }
+
+  getUserPubs(token: any, page: any, userId?: any): Observable<any> {
+    let headers = new HttpHeaders()
+    .set('Content-Type', 'application/json')
+    .set('Authorization', `Bearer ${token}`);
+
+    const from = (page * 5) - 5;
+    const url = `${this.url}publications/user/${userId}?from=${from}`;
+
+    return this._http.get(url, {headers: headers});
   }
 }

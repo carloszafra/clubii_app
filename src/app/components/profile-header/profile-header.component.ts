@@ -12,6 +12,7 @@ import { userI } from 'src/app/shared/models/user.interface';
 export class ProfileHeaderComponent implements OnInit {
 
   public user: userI;
+  public userLoged: userI;
   //@Output() outValue: EventEmitter<userI> = new EventEmitter();
 
   constructor( 

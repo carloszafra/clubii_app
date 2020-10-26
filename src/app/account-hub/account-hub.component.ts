@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 declare function customInitFunctions();
 
@@ -8,9 +8,13 @@ declare function customInitFunctions();
   styles: [
   ]
 })
-export class AccountHubComponent implements OnInit {
+export class AccountHubComponent implements OnInit, AfterViewInit {
   
   ngOnInit():void {
-    
+    //customInitFunctions();
   } 
+
+  ngAfterViewInit():void{
+    customInitFunctions();
+  }
 }

@@ -92,7 +92,7 @@ export class AuthService {
     return this._http.get(url, {headers: headers})
   }
 
-  getUser(userId: any): Observable<any> {
+  getUser(userId: any): Observable<any> { 
     const token = this.getToken();
     let headers = new HttpHeaders()
     .set('Content-Type', 'application/json')
