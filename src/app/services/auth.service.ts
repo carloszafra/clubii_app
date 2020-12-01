@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core'; 
+import { EventEmitter, Injectable } from '@angular/core'; 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { GLOBAL } from'./global';
 import { Observable } from 'rxjs';
-import { userI } from '../shared/models/user.interface';
+import { User, userI } from '../shared/models/user.interface';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -12,6 +13,8 @@ export class AuthService {
   public url: string;
   public token: any;
   public userLoged: userI;
+  public user: User;
+  public newImg: EventEmitter<string> = new EventEmitter();
 
   constructor( public _http: HttpClient ) { 
     this.url = GLOBAL.url;
@@ -29,6 +32,7 @@ export class AuthService {
     let headers = new HttpHeaders().set('Content-type', 'application/json');
 
     return this._http.post(`${this.url}auth/login`, params, {headers: headers})
+    
   }
 
   getIdentity(): userI {
@@ -78,14 +82,12 @@ export class AuthService {
     return this._http.get(`${this.url}user/logged`, {headers: headers})
   }
 
-  getUsers(page?: any): Observable<any>{
+  getUsers(from : any): Observable<any>{
     const token = this.getToken();
 
     let headers = new HttpHeaders()
     .set('Content-Type', 'application/json')
     .set('Authorization', `Bearer ${token}`);
-
-    const from = (page * 5)- 5;
 
     const url = `${this.url}user?from=${from}`;
 

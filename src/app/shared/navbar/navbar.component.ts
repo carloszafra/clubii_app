@@ -3,8 +3,9 @@ import { NavBarService } from '../../services/nav-bar.service'
 import { RouterLink} from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute, ActivationEnd } from '@angular/router';
-import { filter, map } from 'rxjs/operators';
+import { delay, filter, map } from 'rxjs/operators';
 import { AuthService } from '../../services/auth.service';
+import { User, userI } from '../models/user.interface';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +18,8 @@ export class NavbarComponent implements OnInit, OnDestroy{
   public menuItems: any[];
   public title: string;
   public titleSubs$: Subscription;
-  public user: any;
+  public user: userI;
+  public $img: Subscription;
 
   constructor( 
     private router: Router, 
@@ -39,10 +41,15 @@ export class NavbarComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void{
     this.user = this.authSvc.getIdentity();
+    this.$img = this.authSvc.newImg.subscribe((avatarUrl: string) =>{
+      this.user.avatarUrl = avatarUrl;
+      console.log(avatarUrl);
+    })
   }
 
   ngOnDestroy(): void {
     this.titleSubs$.unsubscribe();
+    this.$img.unsubscribe();
   }
 
 

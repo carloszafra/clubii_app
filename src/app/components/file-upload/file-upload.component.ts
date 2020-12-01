@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { userI } from 'src/app/shared/models/user.interface';
+import { User, userI } from 'src/app/shared/models/user.interface';
 import { AuthService } from '../../services/auth.service';
 import { FileUploadService } from '../../services/file-upload.service';
 
@@ -16,7 +16,7 @@ export class FileUploadComponent implements OnInit {
   @Input() type: string;
   public user$: Observable<any>;
   public userData: userI;
-  public user: userI
+  public user: userI;
 
   constructor( private authSvc: AuthService, private fileSvc: FileUploadService) { 
     this.user$ = this.authSvc.getLoggedUser();
@@ -29,7 +29,7 @@ export class FileUploadComponent implements OnInit {
         this.userData = response;
        
       },
-      error => console.log
+      error => console.log(error)
     )
   }
    
@@ -38,6 +38,7 @@ export class FileUploadComponent implements OnInit {
       response => {
         this.user = response.user;
         console.log(this.user);
+        this.authSvc.newImg.emit(this.user.avatarUrl);
         localStorage.setItem('identity', JSON.stringify(this.user));
       },
       error => {

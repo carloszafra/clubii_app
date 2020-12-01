@@ -37,7 +37,7 @@ export class NewsfeedTimelineComponent implements OnInit, AfterViewInit {
     customInitFunctions();
     this.itemPubs.changes.subscribe(t =>{
       this.execScripts();
-    })
+    }) 
   }
 
 

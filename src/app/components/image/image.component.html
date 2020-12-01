@@ -1,0 +1,31 @@
+<div class="modal-back" [class.hide]="modalImgSvc.hideModal">
+    <div class="modal fade show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
+        style="display: block;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel1">Image</h4>
+                    <button type="button" (click)="hide()" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <h3>Choose an image</h3>
+
+                    <div class="text-center">
+                        
+                    </div>
+                    <input #inputImage hidden type="file" >
+                </div>
+                <div class="modal-footer">
+                    <button type="button" (click)="hide()" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button"   class="btn btn-primary">Save image</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- (change)="handleImage($event.target.files[0])" -->
+<!-- (click)="fileUpload()" -->
+<!-- <img [src]="modalImgSvc.img" *ngIf="!imgTemp" class="img-avatar" (click)="inputImage.click()">
+                        <img [src]="imgTemp" *ngIf="imgTemp" class="img-avatar"> -->

@@ -12,6 +12,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { GroupSettingsComponent } from './group-settings/group-settings.component';
 import { AccountHubComponent } from './account-hub.component';
 import { SocialComponent } from './social/social.component';
+import { FriendRequestComponent } from './friend-request/friend-request.component';
 
 
 
@@ -20,7 +21,9 @@ import { SocialComponent } from './social/social.component';
     SettingsComponent, 
     GroupSettingsComponent, 
     AccountHubComponent, 
-    SocialComponent],
+    SocialComponent,
+    FriendRequestComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -35,7 +38,8 @@ import { SocialComponent } from './social/social.component';
     SettingsComponent, 
     GroupSettingsComponent, 
     AccountHubComponent,
-    SocialComponent
+    SocialComponent,
+    FriendRequestComponent
   ]
 })
 export class AccountHubModule { }

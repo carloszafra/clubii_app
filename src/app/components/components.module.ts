@@ -7,6 +7,8 @@ import { SectionNavigationComponent } from './section-navigation/section-navigat
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { NewsfeedTimelineComponent } from './newsfeed-timeline/newsfeed-timeline.component';
+import { ImageComponent } from './image/image.component';
+import { ScrollingModule } from '@angular/cdk/scrolling'
 
 
 @NgModule({
@@ -15,19 +17,22 @@ import { NewsfeedTimelineComponent } from './newsfeed-timeline/newsfeed-timeline
     ProfileHeaderComponent, 
     SectionNavigationComponent, 
     FileUploadComponent, 
-    NewsfeedTimelineComponent
+    NewsfeedTimelineComponent, 
+    ImageComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    ScrollingModule
   ],
   exports: [
     HubSidebarComponent,
     ProfileHeaderComponent,
     SectionNavigationComponent,
     FileUploadComponent,
-    NewsfeedTimelineComponent
+    NewsfeedTimelineComponent,
+    ImageComponent
   ]
 })
 export class ComponentsModule { }

@@ -1,6 +1,5 @@
 import { Component, OnInit, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
-import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { PublicationService } from 'src/app/services/publication.service';
 import { pubI } from 'src/app/shared/models/publication.interface';

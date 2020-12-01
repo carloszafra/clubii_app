@@ -3,7 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { userI } from 'src/app/shared/models/user.interface';
 import { AuthService } from '../../services/auth.service';
 import { FileUploadService } from '../../services/file-upload.service';
-import { Observable} from 'rxjs';
+import { Observable, Subscription} from 'rxjs';
+import { ImageModalService } from '../../services/image-modal.service'
 
 @Component({
   selector: 'app-settings',
@@ -11,7 +12,7 @@ import { Observable} from 'rxjs';
   styles: [
   ]
 })
-export class SettingsComponent implements OnInit {
+export class SettingsComponent implements OnInit, OnDestroy {
 
   public editProfileForm;
   public user$: Observable<any>;
@@ -19,10 +20,12 @@ export class SettingsComponent implements OnInit {
   public user: userI;
   public avatarUrl: string = 'avatar';
   public coverUrl: string = 'cover';
+  public img$: Subscription;
 
   constructor( 
     private authSvc: AuthService,
-    private fileSvc: FileUploadService
+    private fileSvc: FileUploadService,
+    private mdalImgSvc: ImageModalService
   ) 
   {
     this.editProfileForm = new FormGroup({
@@ -43,14 +46,23 @@ export class SettingsComponent implements OnInit {
     this.user$.subscribe(
       response => {
         console.log(response);
-        this.userData = response;
+        this.userData = response; 
         this.initValueForm(this.userData);
       },
       error => console.log
     );
 
+    this.img$ = this.authSvc.newImg.subscribe((avatarUrl: string) => {
+      this.user.avatarUrl = avatarUrl;
+      console.log(avatarUrl)
+    })
+
     console.log(this.user)
      
+  }
+
+  ngOnDestroy(): void{
+    this.img$.unsubscribe();
   }
 
   OnEditProfile( value: userI ){
@@ -70,7 +82,7 @@ export class SettingsComponent implements OnInit {
     )
   }
 
-  /* ++++++++++++
+  /* ++++++++++++ 
   PRECARGAR FORMULARIO
   +++++++++++++++*/ 
 
@@ -80,9 +92,21 @@ export class SettingsComponent implements OnInit {
       name: userData.name,
       description: userData.description,
       email: userData.email,
-      birthday: userData.birthday,
+      birthday: userData.birthday, 
       country: userData.country
     })
+  }
+
+  openModal(){
+    try {
+      console.log(`click `)
+      this.mdalImgSvc.openModal()
+      
+    } catch (error) {
+      console.log(error)
+    }
+    
+    
   }
 
   

@@ -5,12 +5,7 @@ import { UsersComponent } from './users.component';
 
 const routes: Routes = [
     {
-      path:'members',
-      redirectTo:'members/1',
-      pathMatch: 'full'
-    },
-    {
-        path: 'members/:page',
+        path: 'members',
         component: UsersComponent,
         data: {title: 'Members'},
         children: []

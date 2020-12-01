@@ -131,8 +131,24 @@
     </div>
     <!-- /SECTION FILTERS BAR -->
 
+    <!-- LOADER BARS -->
+    <div class="loader-bars" *ngIf="loading">
+        <div class="loader-bar"></div>
+        <div class="loader-bar"></div>
+        <div class="loader-bar"></div>
+        <div class="loader-bar"></div>
+        <div class="loader-bar"></div>
+        <div class="loader-bar"></div>
+        <div class="loader-bar"></div>
+        <div class="loader-bar"></div>
+    </div>
+    <!-- /LOADER BARS -->
+
     <!-- GRID -->
-    <div class="grid grid-4-4-4 centered">
+    <div class="grid grid-4-4-4 centered" *ngIf="!loading">
+
+
+
         <!-- USER PREVIEW -->
         <div #itemUsers class="user-preview" *ngFor="let user of users">
             <!-- USER PREVIEW COVER -->
@@ -158,7 +174,7 @@
                         <!-- USER AVATAR CONTENT -->
                         <div class="user-avatar-content">
                             <!-- HEXAGON -->
-                            <div class="hexagon-image-82-90" data-src="img/avatar/05.jpg"></div>
+                            <div class="hexagon-image-82-90" [attr.data-src]="user.avatarUrl"></div>
                             <!-- /HEXAGON -->
                         </div>
                         <!-- /USER AVATAR CONTENT -->
@@ -206,7 +222,8 @@
                     <!-- /USER SHORT DESCRIPTION AVATAR -->
 
                     <!-- USER SHORT DESCRIPTION TITLE -->
-                    <p class="user-short-description-title"><a [routerLink]="['/profile/' + user._id]">{{user.name}}</a></p>
+                    <p class="user-short-description-title"><a [routerLink]="['/profile/' + user._id]">{{user.name}}</a>
+                    </p>
                     <!-- /USER SHORT DESCRIPTION TITLE -->
 
                     <!-- USER SHORT DESCRIPTION TEXT -->
@@ -301,8 +318,7 @@
                     <!-- USER PREVIEW STATS SLIDE -->
                     <div class="user-preview-stats-slide">
                         <!-- USER PREVIEW TEXT -->
-                        <p class="user-preview-text">Hello! I'm James Hart, but I go by the name of Destroy Dex on my
-                            stream channel. Come to check out the latest gaming news!</p>
+                        <p class="user-preview-text">{{user.description}}</p>
                         <!-- /USER PREVIEW TEXT -->
                     </div>
                     <!-- /USER PREVIEW STATS SLIDE -->
@@ -368,24 +384,62 @@
                 <!-- USER PREVIEW ACTIONS -->
                 <div class="user-preview-actions">
                     <!-- BUTTON -->
-                    <p class="button secondary">Add Friend +</p>
+                    <button class="button primary" (click)="friendRequest(user._id)"
+                    *ngIf="!friends.includes(user._id) && !pending.includes(user._id)">
+
+                        <span>Add Friend +</span>
+                    </button>
+                    <!-- /BUTTON -->
+
+                    <button class="button secondary" *ngIf="pending.includes(user._id)">
+                        <span>Pending</span>
+                    </button>
+
+                    <button class="button primary" *ngIf="friends.includes(user._id)" 
+                    (mouseenter)="mouseOverF(user._id)" (mouseleave)="mouseLeaveF()"
+                    [ngClass]="{'button tertiary': user._id == mEnter}"
+                    [ngClass]="{'button secondary': user._id == null}">
+                      
+                    <span *ngIf="mEnter == user._id, else friends"> Unfriend </span>
+                    <ng-template #friends>Friends</ng-template>
+                    
+
+                    </button>
+
+                    <!-- FOLLOW BUTTONS -->
+
+                    <!-- BUTTON -->
+                    <button class="button secondary" (click)="followUser(user._id)" *ngIf="!following.includes(user._id)">
+                        <span>Follow</span>
+                    </button>
                     <!-- /BUTTON -->
 
                     <!-- BUTTON -->
-                    <p class="button primary">Send Message</p>
+                    <button class="button primary" (click)="unfollow(user._id)" *ngIf="following.includes(user._id)"
+                        (mouseenter)="mouseOver(user._id)" (mouseleave)="mouseLeave()"
+                        [ngClass]="{'button tertiary': user._id == mouseEnter}"
+                        [ngClass]="{'button secondary': user._id == null}">
+
+                        <span *ngIf="mouseEnter == user._id; else following">Unfollow</span>
+                        <ng-template #following>Following</ng-template>
+                    </button>
                     <!-- /BUTTON -->
+
                 </div>
                 <!-- /USER PREVIEW ACTIONS -->
             </div>
             <!-- /USER PREVIEW INFO -->
+            
         </div>
         <!-- /USER PREVIEW -->
 
     </div>
     <!-- /GRID -->
+    <button (click)="execScripts()">aqui</button>
 
     <!-- SECTION PAGER BAR -->
     <div class="section-pager-bar">
+       
         <!-- SECTION PAGER -->
         <div class="section-pager">
             <!-- SECTION PAGER ITEM -->
@@ -441,11 +495,14 @@
         <!-- SECTION PAGER CONTROLS -->
         <div class="section-pager-controls">
             <!-- SLIDER CONTROL -->
-            <div class="slider-control left disabled">
+            <div class="slider-control left">
                 <!-- SLIDER CONTROL ICON -->
-                <svg class="slider-control-icon icon-small-arrow">
-                    <use xlink:href="#svg-small-arrow"></use>
-                </svg>
+                <button (click)="changePage(-5)">
+                    <svg class="slider-control-icon icon-small-arrow">
+                        <use xlink:href="#svg-small-arrow"></use>
+                    </svg>
+                </button>
+
                 <!-- /SLIDER CONTROL ICON -->
             </div>
             <!-- /SLIDER CONTROL -->
@@ -453,9 +510,11 @@
             <!-- SLIDER CONTROL -->
             <div class="slider-control right">
                 <!-- SLIDER CONTROL ICON -->
-                <svg class="slider-control-icon icon-small-arrow">
-                    <use xlink:href="#svg-small-arrow"></use>
-                </svg>
+                <button (click)="changePage(5)">
+                    <svg class="slider-control-icon icon-small-arrow">
+                        <use xlink:href="#svg-small-arrow"></use>
+                    </svg>
+                </button>
                 <!-- /SLIDER CONTROL ICON -->
             </div>
             <!-- /SLIDER CONTROL -->
@@ -465,7 +524,7 @@
     <!-- /SECTION PAGER BAR -->
 
     <!-- SECTION RESULTS TEXT -->
-    <p class="section-results-text">Showing 9 out of 256 members</p>
+    <p class="section-results-text">Showing 5 out of {{total}} members</p>
     <!-- /SECTION RESULTS TEXT -->
 </div>
 <!-- /CONTENT GRID -->

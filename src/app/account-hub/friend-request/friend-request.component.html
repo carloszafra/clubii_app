@@ -1,0 +1,169 @@
+<!-- SECTION HEADER -->
+<div class="section-header">
+    <!-- SECTION HEADER INFO -->
+    <div class="section-header-info">
+        <!-- SECTION PRETITLE -->
+        <p class="section-pretitle">My Profile</p>
+        <!-- /SECTION PRETITLE -->
+
+        <!-- SECTION TITLE -->
+        <h2 class="section-title">Friend Requests <span class="highlighted">{{total}}</span></h2>
+        <!-- /SECTION TITLE -->
+    </div>
+    <!-- /SECTION HEADER INFO -->
+
+    <!-- SECTION HEADER ACTIONS -->
+    <div class="section-header-actions">
+        <!-- SECTION HEADER ACTION -->
+        <p class="section-header-action">Find Friends</p>
+        <!-- /SECTION HEADER ACTION -->
+
+        <!-- SECTION HEADER ACTION -->
+        <p class="section-header-action">Settings</p>
+        <!-- /SECTION HEADER ACTION -->
+    </div>
+    <!-- /SECTION HEADER ACTIONS -->
+</div>
+<!-- /SECTION HEADER -->
+
+<div class="notification-box-list" *ngIf="loading">
+    <!-- LOADER BARS -->
+    <div class="loader-bars" >
+        <div class="loader-bar"></div>
+        <div class="loader-bar"></div>
+        <div class="loader-bar"></div>
+        <div class="loader-bar"></div>
+        <div class="loader-bar"></div>
+        <div class="loader-bar"></div>
+        <div class="loader-bar"></div>
+        <div class="loader-bar"></div>
+
+       
+    </div>
+    <!-- /LOADER BARS -->
+</div>
+
+<div class="notification-box" *ngIf="requests.length ==0 && !loading">
+    <p class="text-center"> No requests yet </p>
+</div>
+
+<!-- NOTIFICATION BOX LIST -->
+<div class="notification-box-list" *ngIf="requests.length > 0 && !loading">
+
+
+
+
+
+
+    <!-- NOTIFICATION BOX -->
+    <div class="notification-box" *ngFor="let request of requests">
+        <!-- USER STATUS -->
+        <div class="user-status request">
+            <!-- USER STATUS AVATAR -->
+            <a class="user-status-avatar" href="profile-timeline.html">
+                <!-- USER AVATAR -->
+                <div class="user-avatar small no-outline">
+                    <!-- USER AVATAR CONTENT -->
+                    <div class="user-avatar-content">
+                        <!-- HEXAGON -->
+                        <div class="hexagon-image-30-32" [attr.data-src]="request.emmiter.avatarUrl"
+                            style="width: 30px; height: 32px; position: relative;"><canvas width="30" height="32"
+                                style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                        <!-- /HEXAGON -->
+                    </div>
+                    <!-- /USER AVATAR CONTENT -->
+
+                    <!-- USER AVATAR PROGRESS -->
+                    <div class="user-avatar-progress">
+                        <!-- HEXAGON -->
+                        <div class="hexagon-progress-40-44" style="width: 40px; height: 44px; position: relative;">
+                            <canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas>
+                        </div>
+                        <!-- /HEXAGON -->
+                    </div>
+                    <!-- /USER AVATAR PROGRESS -->
+
+                    <!-- USER AVATAR PROGRESS BORDER -->
+                    <div class="user-avatar-progress-border">
+                        <!-- HEXAGON -->
+                        <div class="hexagon-border-40-44" style="width: 40px; height: 44px; position: relative;">
+                            <canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas>
+                        </div>
+                        <!-- /HEXAGON -->
+                    </div>
+                    <!-- /USER AVATAR PROGRESS BORDER -->
+
+                    <!-- USER AVATAR BADGE -->
+                    <div class="user-avatar-badge">
+                        <!-- USER AVATAR BADGE BORDER -->
+                        <div class="user-avatar-badge-border">
+                            <!-- HEXAGON -->
+                            <div class="hexagon-22-24" style="width: 22px; height: 24px; position: relative;">
+                                <canvas width="22" height="24"
+                                    style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                            <!-- /HEXAGON -->
+                        </div>
+                        <!-- /USER AVATAR BADGE BORDER -->
+
+                        <!-- USER AVATAR BADGE CONTENT -->
+                        <div class="user-avatar-badge-content">
+                            <!-- HEXAGON -->
+                            <div class="hexagon-dark-16-18" style="width: 16px; height: 18px; position: relative;">
+                                <canvas width="16" height="18"
+                                    style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                            <!-- /HEXAGON -->
+                        </div>
+                        <!-- /USER AVATAR BADGE CONTENT -->
+
+                        <!-- USER AVATAR BADGE TEXT -->
+                        <p class="user-avatar-badge-text">14</p>
+                        <!-- /USER AVATAR BADGE TEXT -->
+                    </div>
+                    <!-- /USER AVATAR BADGE -->
+                </div>
+                <!-- /USER AVATAR -->
+            </a>
+            <!-- /USER STATUS AVATAR -->
+
+            <!-- USER STATUS TITLE -->
+            <p class="user-status-title"><a class="bold" href="profile-timeline.html">{{request.emmiter.name}}</a></p>
+            <!-- /USER STATUS TITLE -->
+
+            <!-- USER STATUS TEXT -->
+            <p class="user-status-text small-space">TODO: 6 friends in common</p>
+            <!-- /USER STATUS TEXT -->
+
+            <!-- ACTION REQUEST LIST -->
+            <div class="action-request-list">
+                <!-- ACTION REQUEST -->
+                <button class="action-request accept with-text" (click)="acceptRequest(request._id)">
+                    <!-- ACTION REQUEST ICON -->
+                    <svg class="action-request-icon icon-add-friend">
+                        <use xlink:href="#svg-add-friend"></use>
+                    </svg>
+                    <!-- /ACTION REQUEST ICON -->
+
+                    <!-- ACTION REQUEST TEXT -->
+                    <span class="action-request-text">Add Friend</span>
+                    <!-- /ACTION REQUEST TEXT -->
+                </button>
+                <!-- /ACTION REQUEST -->
+
+                <!-- ACTION REQUEST -->
+                <button class="action-request decline" (click)="rejectRequest(request._id)">
+                    <!-- ACTION REQUEST ICON -->
+                    <svg class="action-request-icon icon-remove-friend">
+                        <use xlink:href="#svg-remove-friend"></use>
+                    </svg>
+                    <!-- /ACTION REQUEST ICON -->
+                </button>
+                <!-- /ACTION REQUEST -->
+            </div>
+            <!-- ACTION REQUEST LIST -->
+        </div>
+        <!-- /USER STATUS -->
+    </div>
+    <!-- /NOTIFICATION BOX -->
+
+</div>
+<!-- /NOTIFICATION BOX LIST -->
