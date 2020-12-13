@@ -16,6 +16,7 @@ export class ImageComponent implements OnInit {
   }
 
   hide(){
+    console.log('click')
     this.modalImgSvc.closeModal()
   }
 

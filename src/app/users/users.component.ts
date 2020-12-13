@@ -48,9 +48,9 @@ export class UsersComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void{
     customInitFunctions();
-    this.itemUsers.changes.pipe(
+     this.itemUsers.changes.pipe(
       delay(1000)
-    ).subscribe( t => {
+     ).subscribe( t => {
       customInitFunctions();
     })
     

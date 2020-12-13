@@ -6,16 +6,20 @@ import { GroupSettingsComponent } from './group-settings/group-settings.componen
 import { SocialComponent } from './social/social.component';
 import { AccountHubComponent } from './account-hub.component';
 import { FriendRequestComponent } from './friend-request/friend-request.component';
+import { NewGroupComponent } from './groups/new-group.component';
+import { GroupManageComponent } from './groups/group-manage.component';
 
 const routes: Routes = [
     {
         path: 'account-hub',
         component: AccountHubComponent,
         children: [
-            { path: '', component: SettingsComponent, data: { title: 'Profile settings'} },
-            { path: 'group-settings', component: GroupSettingsComponent, data: { title: 'Group settings'} },
+            { path: '', component: SettingsComponent, data: { title: 'Profile Settings'} },
+            { path: 'group-settings', component: GroupSettingsComponent, data: { title: 'Group Settings'} },
             { path: 'social', component: SocialComponent, data: {title: 'Social'}},
-            { path: 'friend-request', component: FriendRequestComponent, data: {title: 'Friend Request'}}
+            { path: 'friend-request', component: FriendRequestComponent, data: {title: 'Friend Request'}},
+            { path: 'new-group', component: NewGroupComponent, data:{title: 'New Group'}},
+            { path: 'manage-group/:id', component: GroupManageComponent, data:{title: 'Manage Group'}}
         ]
     },
 ];

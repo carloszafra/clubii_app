@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ImageModalService } from '../../services/image-modal.service';
 
 @Component({
   selector: 'app-group-settings',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupSettingsComponent implements OnInit {
 
-  constructor() { }
+  constructor( private modalSvc: ImageModalService) { }
 
   ngOnInit(): void {
+  }
+
+  public openModal(): void {
+    this.modalSvc.openModal();
   }
 
 }

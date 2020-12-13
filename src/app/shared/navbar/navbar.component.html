@@ -53,9 +53,10 @@
     <!-- /USER AVATAR -->
 
     <!-- MENU -->
-    <ul class="menu small">
+    <ul class="menu small"> 
         <!-- MENU ITEM -->
-        <li class="menu-item" *ngFor="let item of menuItems">
+        <li class="menu-item" *ngFor="let item of menuItems"  routerLinkActive="active" 
+        [routerLinkActiveOptions]="{exact: true}">
             <!-- MENU ITEM LINK -->
             <a class="menu-item-link text-tooltip-tfr" [routerLink]="item.url" 
                 [attr.data-title]="item.title">

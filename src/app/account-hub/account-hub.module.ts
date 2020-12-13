@@ -13,7 +13,8 @@ import { GroupSettingsComponent } from './group-settings/group-settings.componen
 import { AccountHubComponent } from './account-hub.component';
 import { SocialComponent } from './social/social.component';
 import { FriendRequestComponent } from './friend-request/friend-request.component';
-
+import { NewGroupComponent } from './groups/new-group.component'
+import { GroupManageComponent } from './groups/group-manage.component';
 
 
 @NgModule({
@@ -22,7 +23,9 @@ import { FriendRequestComponent } from './friend-request/friend-request.componen
     GroupSettingsComponent, 
     AccountHubComponent, 
     SocialComponent,
-    FriendRequestComponent
+    FriendRequestComponent,
+    NewGroupComponent,
+    GroupManageComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +42,9 @@ import { FriendRequestComponent } from './friend-request/friend-request.componen
     GroupSettingsComponent, 
     AccountHubComponent,
     SocialComponent,
-    FriendRequestComponent
+    FriendRequestComponent,
+    NewGroupComponent,
+    GroupManageComponent
   ]
 })
 export class AccountHubModule { }

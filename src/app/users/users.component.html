@@ -150,7 +150,7 @@
 
 
         <!-- USER PREVIEW -->
-        <div #itemUsers class="user-preview" *ngFor="let user of users">
+        <div #itemUsers class="user-preview" *ngFor="let user of users; let lastcall = last">
             <!-- USER PREVIEW COVER -->
             <figure class="user-preview-cover liquid">
                 <img src="img/cover/04.jpg" alt="cover-04">
@@ -429,13 +429,13 @@
                 <!-- /USER PREVIEW ACTIONS -->
             </div>
             <!-- /USER PREVIEW INFO -->
-            
+           
         </div>
         <!-- /USER PREVIEW -->
 
     </div>
     <!-- /GRID -->
-    <button (click)="execScripts()">aqui</button>
+   
 
     <!-- SECTION PAGER BAR -->
     <div class="section-pager-bar">
